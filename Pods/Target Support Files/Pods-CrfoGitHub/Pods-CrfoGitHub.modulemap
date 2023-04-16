@@ -1,0 +1,6 @@
+framework module Pods_CrfoGitHub {
+  umbrella header "Pods-CrfoGitHub-umbrella.h"
+
+  export *
+  module * { export * }
+}

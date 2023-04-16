@@ -1,0 +1,6 @@
+framework module Pods_CrfoGitHub_CrfoGitHubUITests {
+  umbrella header "Pods-CrfoGitHub-CrfoGitHubUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
