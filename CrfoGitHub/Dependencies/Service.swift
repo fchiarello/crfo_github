@@ -12,6 +12,9 @@ protocol ServiceProtocol {
     func loadGitHubServices(url: String,
                            onComplete: @escaping (Model) -> Void,
                            onError: @escaping (ErrorType) -> Void)
+    
+    func loadImage(url: String,
+                   onComplete: @escaping (UIImage?) -> Void)
 }
 
 final class Service: ServiceProtocol {
@@ -46,6 +49,45 @@ final class Service: ServiceProtocol {
             } else {
                 guard let taskError = error else { return }
                 onError(.taskError(error: taskError))
+            }
+        }
+        task.resume()
+    }
+    
+    func loadImage(url: String,
+                   onComplete: @escaping (UIImage?) -> Void) {
+        
+        guard let urlString = URL(string: url) else {
+            let errorImage = UIImage(systemName: Constants.avatarErrorImage)
+            onComplete(errorImage)
+            return
+        }
+        
+        let task = Service.session.dataTask(with: urlString) { data, response, error in
+            if error == nil {
+                guard let response = response as? HTTPURLResponse else { return }
+                
+                switch response.statusCode {
+                    
+                case 200:
+                    guard let data = data else {
+                        let errorImage = UIImage(systemName: Constants.avatarErrorImage)
+                        onComplete(errorImage)
+                        return
+                    }
+                    
+                    DispatchQueue.main.async {
+                        let image = UIImage(data: data)
+                        onComplete(image)
+                    }
+                    
+                default:
+                    let errorImage = UIImage(systemName: Constants.avatarErrorImage)
+                    onComplete(errorImage)
+                }
+            } else {
+                let errorImage = UIImage(systemName: Constants.avatarErrorImage)
+                onComplete(errorImage)
             }
         }
         task.resume()

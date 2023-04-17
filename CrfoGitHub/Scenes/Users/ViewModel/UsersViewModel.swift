@@ -10,6 +10,7 @@ final class UsersViewModel {
     private var service: ServiceProtocol?
     
     var usersList: Model?
+    var avatar: UIImage?
     
     var delegate: UsersViewModelDelegate?
     
@@ -27,18 +28,9 @@ final class UsersViewModel {
     }
     
     func imageService(urlAvatar: String) -> UIImage {
-        var image: UIImage?
-        
-        if let url = URL(string: urlAvatar) {
-            do {
-                let path = try Data(contentsOf: url)
-                image = UIImage(data: path)
-            } catch {
-                image = UIImage(systemName: Constants.avatarErrorImage)
-            }
-        } else {
-            image = UIImage(systemName: Constants.avatarErrorImage)
-        }
-        return image ?? UIImage()
+        service?.loadImage(url: urlAvatar, onComplete: { image in
+            self.avatar = image
+        })
+        return self.avatar ?? UIImage()
     }
 }

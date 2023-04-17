@@ -5,4 +5,5 @@ struct Constants {
     static let rightArrow = "chevron.right"
     static let usersCellIdentifier = "usersTableViewCell"
     static let avatarErrorImage = "person.crop.circle.badge.exclamationmark"
+    static let defaultError = "error"
 }

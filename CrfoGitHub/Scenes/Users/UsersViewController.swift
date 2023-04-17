@@ -62,7 +62,8 @@ extension UsersViewController: UITableViewDataSource {
         }
         
         if let data = viewModel.usersList?[indexPath.item] {
-            cell.configureCellInfo(avatar: viewModel.imageService(urlAvatar: data.avatarURL ?? String()),
+            let image = viewModel.imageService(urlAvatar: data.avatarURL ?? String())
+            cell.configureCellInfo(avatar: image,
                                    loginName: data.login ?? String(),
                                    type: data.type ?? .user)
         }
