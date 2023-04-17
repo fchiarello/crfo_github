@@ -61,12 +61,11 @@ extension UsersViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        let image = UIImage(systemName: "person.crop.circle.badge.exclamationmark") ?? UIImage()
-        image.withTintColor(.darkGray, renderingMode: .alwaysTemplate)
-        
-        cell.configureCellInfo(avatar: image,
-                                loginName: "TESTE TESTE TESTE",
-                                type: .user)
+        if let data = viewModel.usersList?[indexPath.item] {
+            cell.configureCellInfo(avatar: viewModel.imageService(urlAvatar: data.avatarURL ?? String()),
+                                   loginName: data.login ?? String(),
+                                   type: data.type ?? .user)
+        }
         
         return cell
     }

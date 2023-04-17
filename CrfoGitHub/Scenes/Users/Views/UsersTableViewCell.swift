@@ -13,7 +13,9 @@ final class UsersTableViewCell: UITableViewCell {
     private lazy var avatar: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .center
+        imageView.layer.masksToBounds = false
+        imageView.layer.cornerRadius = (self.frame.height / 2)
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
@@ -58,7 +60,7 @@ final class UsersTableViewCell: UITableViewCell {
     func configureCellInfo(avatar: UIImage, loginName: String, type: TypeEnum) {
         self.avatar.image = avatar
         self.nameLabel.text = loginName
-        self.typeLabel.text = type.rawValue.uppercased()
+        self.typeLabel.text = type.rawValue.lowercased()
     }
 
 }
@@ -84,8 +86,7 @@ extension UsersTableViewCell: ViewCode {
     }
     
     func applyAdditionalChanges() {
-//        avatar.layer.masksToBounds = true
-//        avatar.layer.cornerRadius = bounds.width / 2
+        
     }
 }
 

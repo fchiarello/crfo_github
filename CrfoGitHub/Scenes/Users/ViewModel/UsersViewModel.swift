@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 protocol UsersViewModelDelegate {
     func successList()
@@ -23,5 +24,21 @@ final class UsersViewModel {
         }, onError: { error in
             print(error)
         })
+    }
+    
+    func imageService(urlAvatar: String) -> UIImage {
+        var image: UIImage?
+        
+        if let url = URL(string: urlAvatar) {
+            do {
+                let path = try Data(contentsOf: url)
+                image = UIImage(data: path)
+            } catch {
+                image = UIImage(systemName: Constants.avatarErrorImage)
+            }
+        } else {
+            image = UIImage(systemName: Constants.avatarErrorImage)
+        }
+        return image ?? UIImage()
     }
 }
