@@ -23,6 +23,9 @@
 		928AB36829EC54C80002691C /* UsersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928AB36729EC54C80002691C /* UsersModel.swift */; };
 		928AB36A29EC56330002691C /* UserCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928AB36929EC56330002691C /* UserCoordinator.swift */; };
 		928AB36D29EC57AB0002691C /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928AB36C29EC57AB0002691C /* UsersViewModel.swift */; };
+		928AB37429EC80D40002691C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928AB37329EC80D40002691C /* Constants.swift */; };
+		928AB37729ECBC640002691C /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928AB37629ECBC640002691C /* ViewCode.swift */; };
+		928AB37A29ECC24C0002691C /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928AB37929ECC24B0002691C /* UsersTableViewCell.swift */; };
 		BBB2B117B77D8B01F9A9A87A /* Pods_CrfoGitHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 504113AAD4F8D99D6F868747 /* Pods_CrfoGitHub.framework */; };
 		F6948BA95E363308791D445F /* Pods_CrfoGitHub_CrfoGitHubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29446D3F465F03E17F6D8AE1 /* Pods_CrfoGitHub_CrfoGitHubUITests.framework */; };
 /* End PBXBuildFile section */
@@ -68,6 +71,9 @@
 		928AB36929EC56330002691C /* UserCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoordinator.swift; sourceTree = "<group>"; };
 		928AB36C29EC57AB0002691C /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
 		928AB36E29EC5CB80002691C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		928AB37329EC80D40002691C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		928AB37629ECBC640002691C /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
+		928AB37929ECC24B0002691C /* UsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
 		AD9DF49F2958BBF06F19E250 /* Pods-CrfoGitHubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrfoGitHubTests.debug.xcconfig"; path = "Target Support Files/Pods-CrfoGitHubTests/Pods-CrfoGitHubTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B3E6ABB0CBE6C01367B82E91 /* Pods-CrfoGitHub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrfoGitHub.debug.xcconfig"; path = "Target Support Files/Pods-CrfoGitHub/Pods-CrfoGitHub.debug.xcconfig"; sourceTree = "<group>"; };
 		B54C21A48D12E00486165E1D /* Pods_CrfoGitHubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrfoGitHubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +148,8 @@
 		928AB32829EC4BFF0002691C /* CrfoGitHub */ = {
 			isa = PBXGroup;
 			children = (
+				928AB37529ECBC520002691C /* Commom */,
+				928AB37229EC80C10002691C /* Utils */,
 				928AB36429EC54690002691C /* Scenes */,
 				928AB36129EC53DC0002691C /* Dependencies */,
 				928AB35E29EC536C0002691C /* Factory */,
@@ -208,6 +216,7 @@
 		928AB36529EC54930002691C /* Users */ = {
 			isa = PBXGroup;
 			children = (
+				928AB37829ECC2280002691C /* Views */,
 				928AB36B29EC57930002691C /* ViewModel */,
 				928AB36629EC54B40002691C /* Model */,
 				928AB32D29EC4BFF0002691C /* UsersViewController.swift */,
@@ -230,6 +239,30 @@
 				928AB36C29EC57AB0002691C /* UsersViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		928AB37229EC80C10002691C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				928AB37329EC80D40002691C /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		928AB37529ECBC520002691C /* Commom */ = {
+			isa = PBXGroup;
+			children = (
+				928AB37629ECBC640002691C /* ViewCode.swift */,
+			);
+			path = Commom;
+			sourceTree = "<group>";
+		};
+		928AB37829ECC2280002691C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				928AB37929ECC24B0002691C /* UsersTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		E5A6E0AE766151D08FE52AEF /* Frameworks */ = {
@@ -464,7 +497,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				928AB35B29EC53070002691C /* AppCoordinator.swift in Sources */,
+				928AB37429EC80D40002691C /* Constants.swift in Sources */,
 				928AB36329EC53F40002691C /* Service.swift in Sources */,
+				928AB37A29ECC24C0002691C /* UsersTableViewCell.swift in Sources */,
 				928AB36029EC53870002691C /* DependencyFactory.swift in Sources */,
 				928AB36A29EC56330002691C /* UserCoordinator.swift in Sources */,
 				928AB32E29EC4BFF0002691C /* UsersViewController.swift in Sources */,
@@ -473,6 +508,7 @@
 				928AB36829EC54C80002691C /* UsersModel.swift in Sources */,
 				928AB32C29EC4BFF0002691C /* SceneDelegate.swift in Sources */,
 				928AB36D29EC57AB0002691C /* UsersViewModel.swift in Sources */,
+				928AB37729ECBC640002691C /* ViewCode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

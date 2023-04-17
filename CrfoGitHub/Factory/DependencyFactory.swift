@@ -12,13 +12,15 @@ final class Factory: FactoryProtocol {
     
     func makeUsersViewController(coordinator: UserCoordinator) -> UsersViewController {
         let viewModel = self.makeUsersViewModel(coordinator: coordinator)
-        let viewController = UsersViewController()
+        let viewController = UsersViewController(coordinator: coordinator,
+                                                 viewModel: viewModel)
         
         return viewController
     }
     
     func makeUsersViewModel(coordinator: Coordinator) -> UsersViewModel {
-        UsersViewModel()
+        UsersViewModel(coordinator: coordinator,
+                       service: self.serviceManager)
     }
     
     func makeUserCoordinator() -> UserCoordinator {
