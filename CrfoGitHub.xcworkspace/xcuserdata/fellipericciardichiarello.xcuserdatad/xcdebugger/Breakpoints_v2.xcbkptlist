@@ -3,4 +3,69 @@
    uuid = "0A0481CD-31B3-4D02-9E00-B8BA024C9251"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "30473A39-9AB8-4AB9-8503-07EEFD2186FB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CrfoGitHub/Scenes/Detail/ViewModel/UserDetailViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "loadData(login:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "30473A39-9AB8-4AB9-8503-07EEFD2186FB - 1f7328b816d0f742"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;CrfoGitHub.UserDetailResponse&gt;&gt;) -&gt; () in CrfoGitHub.UserDetailViewModel.loadData(login: Swift.String) -&gt; ()"
+                  moduleName = "CrfoGitHub"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fellipericciardichiarello/projetos/CrfoGitHub/CrfoGitHub/Scenes/Detail/ViewModel/UserDetailViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "419">
+               </Location>
+               <Location
+                  uuid = "30473A39-9AB8-4AB9-8503-07EEFD2186FB - f4f85aa46f0dea58"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (CrfoGitHub.ErrorType) -&gt; () in CrfoGitHub.UserDetailViewModel.loadData(login: Swift.String) -&gt; ()"
+                  moduleName = "CrfoGitHub"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fellipericciardichiarello/projetos/CrfoGitHub/CrfoGitHub/Scenes/Detail/ViewModel/UserDetailViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "37">
+               </Location>
+               <Location
+                  uuid = "30473A39-9AB8-4AB9-8503-07EEFD2186FB - f4f85aa46f0dea79"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (CrfoGitHub.ErrorType) -&gt; () in CrfoGitHub.UserDetailViewModel.loadData(login: Swift.String) -&gt; ()"
+                  moduleName = "CrfoGitHub"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fellipericciardichiarello/projetos/CrfoGitHub/CrfoGitHub/Scenes/Detail/ViewModel/UserDetailViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "37">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

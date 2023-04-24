@@ -1,18 +1,18 @@
 import Foundation
 import UIKit
 
-protocol UsersViewModelDelegate {
-    func successList(model: Model)
+protocol UsersViewModelDelegate: AnyObject {
+    func successList(model: AllUsersModel)
     func errorList()
 }
 
 final class UsersViewModel {
     private var service: ServiceProtocol?
     
-    var usersList: Model?
+    var usersList: AllUsersModel?
     var avatar: UIImage?
     
-    var delegate: UsersViewModelDelegate?
+    weak var delegate: UsersViewModelDelegate?
     
     init(coordinator: Coordinator, service: ServiceProtocol? = nil) {
         self.service = service

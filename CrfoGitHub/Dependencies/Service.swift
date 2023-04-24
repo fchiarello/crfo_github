@@ -10,18 +10,22 @@ enum ErrorType {
 
 protocol ServiceProtocol {
     func loadGitHubServices(url: String,
-                           onComplete: @escaping (Model) -> Void,
+                           onComplete: @escaping (AllUsersModel) -> Void,
                            onError: @escaping (ErrorType) -> Void)
     
     func loadImage(url: String,
                    onComplete: @escaping (UIImage?) -> Void)
+    
+    func loadUserRepository(login: String,
+                            onComplete: @escaping (DetailModel) -> Void,
+                            onError: @escaping (ErrorType) -> Void)
 }
 
 final class Service: ServiceProtocol {
     static let session = URLSession.shared
     
     func loadGitHubServices(url: String,
-                            onComplete: @escaping (Model) -> Void,
+                            onComplete: @escaping (AllUsersModel) -> Void,
                             onError: @escaping (ErrorType) -> Void) {
         guard let urlString = URL(string: url) else {
             onError(.urlError)
@@ -38,8 +42,42 @@ final class Service: ServiceProtocol {
                     
                     do {
                         let decoder = JSONDecoder()
-                        let usersList = try decoder.decode(Model.self, from: data)
+                        let usersList = try decoder.decode(AllUsersModel.self, from: data)
                         onComplete(usersList)
+                    } catch _ as NSError {
+                        onError(.jsonError)
+                    }
+                default:
+                    onError(.statusCodeError(code: response.statusCode))
+                }
+            } else {
+                guard let taskError = error else { return }
+                onError(.taskError(error: taskError))
+            }
+        }
+        task.resume()
+    }
+    
+    func loadUserRepository(login: String,
+                            onComplete: @escaping (DetailModel) -> Void,
+                            onError: @escaping (ErrorType) -> Void) {
+        guard let urlString = URL(string: getURLForUserRepo(login: login)) else {
+            onError(.urlError)
+            return
+        }
+        
+        let task = Service.session.dataTask(with: urlString) { data, response, error in
+            if error == nil {
+                guard let response = response as? HTTPURLResponse else { return }
+                
+                switch response.statusCode {
+                case 200:
+                    guard let data = data else { return }
+                    
+                    do {
+                        let decoder = JSONDecoder()
+                        let userRepo = try decoder.decode(DetailModel.self, from: data)
+                        onComplete(userRepo)
                     } catch _ as NSError {
                         onError(.jsonError)
                     }
@@ -91,5 +129,11 @@ final class Service: ServiceProtocol {
             }
         }
         task.resume()
+    }
+}
+
+extension Service {
+    private func getURLForUserRepo(login: String) -> String {
+        "\(Constants.allUsersUrl)/\(login.lowercased())/repos"
     }
 }

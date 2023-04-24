@@ -26,6 +26,11 @@
 		928AB37429EC80D40002691C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928AB37329EC80D40002691C /* Constants.swift */; };
 		928AB37729ECBC640002691C /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928AB37629ECBC640002691C /* ViewCode.swift */; };
 		928AB37A29ECC24C0002691C /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928AB37929ECC24B0002691C /* UsersTableViewCell.swift */; };
+		928AB37D29F6F5F50002691C /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928AB37C29F6F5F50002691C /* UserDetailViewController.swift */; };
+		928AB38029F6FB520002691C /* UserDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928AB37F29F6FB520002691C /* UserDetailViewModel.swift */; };
+		928AB38329F706F50002691C /* UserDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928AB38229F706F40002691C /* UserDetailResponse.swift */; };
+		928AB38629F71A260002691C /* RepoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928AB38529F71A260002691C /* RepoTableViewCell.swift */; };
+		928AB38829F722220002691C /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928AB38729F722220002691C /* Date+Extension.swift */; };
 		BBB2B117B77D8B01F9A9A87A /* Pods_CrfoGitHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 504113AAD4F8D99D6F868747 /* Pods_CrfoGitHub.framework */; };
 		F6948BA95E363308791D445F /* Pods_CrfoGitHub_CrfoGitHubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29446D3F465F03E17F6D8AE1 /* Pods_CrfoGitHub_CrfoGitHubUITests.framework */; };
 /* End PBXBuildFile section */
@@ -74,6 +79,11 @@
 		928AB37329EC80D40002691C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		928AB37629ECBC640002691C /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
 		928AB37929ECC24B0002691C /* UsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
+		928AB37C29F6F5F50002691C /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		928AB37F29F6FB520002691C /* UserDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewModel.swift; sourceTree = "<group>"; };
+		928AB38229F706F40002691C /* UserDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailResponse.swift; sourceTree = "<group>"; };
+		928AB38529F71A260002691C /* RepoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoTableViewCell.swift; sourceTree = "<group>"; };
+		928AB38729F722220002691C /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		AD9DF49F2958BBF06F19E250 /* Pods-CrfoGitHubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrfoGitHubTests.debug.xcconfig"; path = "Target Support Files/Pods-CrfoGitHubTests/Pods-CrfoGitHubTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B3E6ABB0CBE6C01367B82E91 /* Pods-CrfoGitHub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrfoGitHub.debug.xcconfig"; path = "Target Support Files/Pods-CrfoGitHub/Pods-CrfoGitHub.debug.xcconfig"; sourceTree = "<group>"; };
 		B54C21A48D12E00486165E1D /* Pods_CrfoGitHubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrfoGitHubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -208,6 +218,7 @@
 		928AB36429EC54690002691C /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				928AB37B29F6F5C80002691C /* Detail */,
 				928AB36529EC54930002691C /* Users */,
 			);
 			path = Scenes;
@@ -253,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				928AB37629ECBC640002691C /* ViewCode.swift */,
+				928AB38729F722220002691C /* Date+Extension.swift */,
 			);
 			path = Commom;
 			sourceTree = "<group>";
@@ -261,6 +273,41 @@
 			isa = PBXGroup;
 			children = (
 				928AB37929ECC24B0002691C /* UsersTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		928AB37B29F6F5C80002691C /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				928AB38429F71A0A0002691C /* Views */,
+				928AB38129F706D80002691C /* Model */,
+				928AB37E29F6FB340002691C /* ViewModel */,
+				928AB37C29F6F5F50002691C /* UserDetailViewController.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		928AB37E29F6FB340002691C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				928AB37F29F6FB520002691C /* UserDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		928AB38129F706D80002691C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				928AB38229F706F40002691C /* UserDetailResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		928AB38429F71A0A0002691C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				928AB38529F71A260002691C /* RepoTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -496,9 +543,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				928AB37D29F6F5F50002691C /* UserDetailViewController.swift in Sources */,
+				928AB38629F71A260002691C /* RepoTableViewCell.swift in Sources */,
 				928AB35B29EC53070002691C /* AppCoordinator.swift in Sources */,
 				928AB37429EC80D40002691C /* Constants.swift in Sources */,
 				928AB36329EC53F40002691C /* Service.swift in Sources */,
+				928AB38329F706F50002691C /* UserDetailResponse.swift in Sources */,
 				928AB37A29ECC24C0002691C /* UsersTableViewCell.swift in Sources */,
 				928AB36029EC53870002691C /* DependencyFactory.swift in Sources */,
 				928AB36A29EC56330002691C /* UserCoordinator.swift in Sources */,
@@ -507,8 +557,10 @@
 				928AB32A29EC4BFF0002691C /* AppDelegate.swift in Sources */,
 				928AB36829EC54C80002691C /* UsersModel.swift in Sources */,
 				928AB32C29EC4BFF0002691C /* SceneDelegate.swift in Sources */,
+				928AB38029F6FB520002691C /* UserDetailViewModel.swift in Sources */,
 				928AB36D29EC57AB0002691C /* UsersViewModel.swift in Sources */,
 				928AB37729ECBC640002691C /* ViewCode.swift in Sources */,
+				928AB38829F722220002691C /* Date+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

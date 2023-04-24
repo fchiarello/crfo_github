@@ -32,4 +32,10 @@ extension UserCoordinator: Coordinator {
     func errorAlert(completion: @escaping (() -> Void)) {
         print("<<<<<<<<ERROR>>>>>>")
     }
+    
+    func moveToDetail(login: String) {
+        let viewController = factory.makeUserDetailViewController(coordinator: self)
+        viewController.login = login
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }

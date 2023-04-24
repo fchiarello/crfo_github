@@ -1,6 +1,6 @@
 import Foundation
 
-typealias Model = [UsersModel]
+typealias AllUsersModel = [UsersModel]
 
 struct UsersModel: Codable {
     let login: String?

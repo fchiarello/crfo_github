@@ -5,6 +5,9 @@ protocol FactoryProtocol {
     
     func makeUsersViewController(coordinator: UserCoordinator) -> UsersViewController
     func makeUsersViewModel(coordinator: Coordinator) -> UsersViewModel
+    
+    func makeUserDetailViewController(coordinator: UserCoordinator) -> UserDetailViewController
+    func makeUserDetailViewModel(coordinator: UserCoordinator) -> UserDetailViewModel
 }
 
 final class Factory: FactoryProtocol {
@@ -25,5 +28,16 @@ final class Factory: FactoryProtocol {
     
     func makeUserCoordinator() -> UserCoordinator {
         UserCoordinator(factory: self)
+    }
+    
+    func makeUserDetailViewController(coordinator: UserCoordinator) -> UserDetailViewController {
+        let viewModel = makeUserDetailViewModel(coordinator: coordinator)
+        let viewController = UserDetailViewController(viewModel: viewModel)
+        return viewController
+    }
+    
+    func makeUserDetailViewModel(coordinator: UserCoordinator) -> UserDetailViewModel {
+        UserDetailViewModel(coordinator: coordinator,
+                            service: self.serviceManager)
     }
 }

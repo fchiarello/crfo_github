@@ -29,7 +29,7 @@ class UsersViewController: UIViewController {
     private var coordinator: UserCoordinator?
     private var viewModel: UsersViewModel
     
-    private var model: Model? {
+    private var model: AllUsersModel? {
         didSet {
            self.usersTableView.reloadData()
         }
@@ -71,7 +71,9 @@ extension UsersViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(">>>>>>>Did click on \(indexPath)<<<<<<<")
+        if let model = self.model?[indexPath.item] {
+            coordinator?.moveToDetail(login: model.login ?? String())
+        }
     }
 }
 
@@ -102,7 +104,7 @@ extension UsersViewController: UITableViewDataSource {
 }
 
 extension UsersViewController: UsersViewModelDelegate {
-    func successList(model: Model) {
+    func successList(model: AllUsersModel) {
         DispatchQueue.main.async {
             self.model = model
         }
