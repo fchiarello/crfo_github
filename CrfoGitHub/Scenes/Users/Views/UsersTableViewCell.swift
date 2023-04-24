@@ -13,7 +13,7 @@ final class UsersTableViewCell: UITableViewCell {
     private lazy var avatar: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.layer.masksToBounds = false
+        imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = (self.frame.height / 2)
         imageView.contentMode = .scaleAspectFit
         return imageView

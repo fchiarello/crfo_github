@@ -6,4 +6,5 @@ struct Constants {
     static let usersCellIdentifier = "usersTableViewCell"
     static let avatarErrorImage = "person.crop.circle.badge.exclamationmark"
     static let defaultError = "error"
+    static let emptyListMessage = "No user matches your search!!!"
 }

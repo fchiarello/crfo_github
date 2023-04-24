@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 
 protocol UsersViewModelDelegate {
-    func successList()
+    func successList(model: Model)
     func errorList()
 }
 
@@ -21,7 +21,7 @@ final class UsersViewModel {
     func loadServices() {
         service?.loadGitHubServices(url: Constants.allUsersUrl, onComplete: { users in
             self.usersList = users
-            print(users)
+            self.delegate?.successList(model: users)
         }, onError: { error in
             print(error)
         })

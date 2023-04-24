@@ -1,15 +1,39 @@
 import UIKit
 
 class UsersViewController: UIViewController {
+    private lazy var userSearchBar: UISearchBar = {
+        let bar = UISearchBar()
+        bar.translatesAutoresizingMaskIntoConstraints = false
+        bar.searchBarStyle = .default
+        bar.placeholder = "Type an username..."
+        bar.delegate = self
+        return bar
+    }()
+    
     private lazy var usersTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
     
+    private lazy var emptyListLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.isHidden = true
+        label.numberOfLines = 0
+        label.text = Constants.emptyListMessage
+        label.tintColor = .darkGray
+        return label
+    }()
 
     private var coordinator: UserCoordinator?
     private var viewModel: UsersViewModel
+    
+    private var model: Model? {
+        didSet {
+           self.usersTableView.reloadData()
+        }
+    }
     
     init(coordinator: UserCoordinator? = nil,
          viewModel: UsersViewModel) {
@@ -24,9 +48,14 @@ class UsersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.loadServices()
         setupView()
         setupTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.delegate = self
+        viewModel.loadServices()
     }
     
     private func setupTableView() {
@@ -52,7 +81,7 @@ extension UsersViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        25
+        model?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -61,7 +90,7 @@ extension UsersViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        if let data = viewModel.usersList?[indexPath.item] {
+        if let data = model?[indexPath.item] {
             let image = viewModel.imageService(urlAvatar: data.avatarURL ?? String())
             cell.configureCellInfo(avatar: image,
                                    loginName: data.login ?? String(),
@@ -72,15 +101,56 @@ extension UsersViewController: UITableViewDataSource {
     }
 }
 
+extension UsersViewController: UsersViewModelDelegate {
+    func successList(model: Model) {
+        DispatchQueue.main.async {
+            self.model = model
+        }
+    }
+    
+    func errorList() {
+        print(">>>>ERROR<<<<")
+    }
+}
+
+extension UsersViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            self.model =  viewModel.usersList
+            self.usersTableView.isHidden = false
+            self.emptyListLabel.isHidden = true
+        } else {
+            let filteredUsers = model?.filter( { $0.login?.range(of: searchText, options: .caseInsensitive) != nil } )
+            if filteredUsers?.count == 0 {
+                self.usersTableView.isHidden = true
+                self.emptyListLabel.isHidden = false
+            } else {
+                self.usersTableView.isHidden = false
+                self.emptyListLabel.isHidden = true
+            }
+        }
+    }
+}
+
 extension UsersViewController: ViewCode {
     func buildHierarchy() {
+        view.addSubview(userSearchBar)
         view.addSubview(usersTableView)
+        view.addSubview(emptyListLabel)
     }
     
     func setupConstraints() {
         let safeArea = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
-            usersTableView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            userSearchBar.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            userSearchBar.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 16),
+            userSearchBar.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -16),
+            userSearchBar.heightAnchor.constraint(equalToConstant: 48),
+            
+            emptyListLabel.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
+            emptyListLabel.centerYAnchor.constraint(equalTo: safeArea.centerYAnchor),
+            
+            usersTableView.topAnchor.constraint(equalTo: userSearchBar.bottomAnchor),
             usersTableView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 16),
             usersTableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -16),
             usersTableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
