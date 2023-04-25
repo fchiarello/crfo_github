@@ -7,7 +7,7 @@ struct UserDetailResponse: Codable {
     let nodeID, name, fullName: String?
 //    let welcomePrivate: Bool?
     let owner: UsersModel?
-//    let htmlURL: String?
+    let htmlURL: String?
 //    let description: String?
 //    let fork: Bool?
 //    let url: String?
@@ -53,8 +53,8 @@ struct UserDetailResponse: Codable {
             case fullName = "full_name"
 //            case welcomePrivate = "private"
             case owner
-//            case htmlURL = "html_url"
-//            case description, fork, url
+            case htmlURL = "html_url"
+//            case url
 //            case forksURL = "forks_url"
 //            case keysURL = "keys_url"
 //            case collaboratorsURL = "collaborators_url"

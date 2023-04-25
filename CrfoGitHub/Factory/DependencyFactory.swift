@@ -32,7 +32,8 @@ final class Factory: FactoryProtocol {
     
     func makeUserDetailViewController(coordinator: UserCoordinator) -> UserDetailViewController {
         let viewModel = makeUserDetailViewModel(coordinator: coordinator)
-        let viewController = UserDetailViewController(viewModel: viewModel)
+        let viewController = UserDetailViewController(coordinator: coordinator,
+                                                      viewModel: viewModel)
         return viewController
     }
     

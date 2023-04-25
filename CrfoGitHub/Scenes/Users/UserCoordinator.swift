@@ -38,4 +38,12 @@ extension UserCoordinator: Coordinator {
         viewController.login = login
         navigationController?.pushViewController(viewController, animated: true)
     }
+    
+    func openRepoURL(urlString: String) {
+        guard let url = URL(string: urlString) else {
+          return
+        }
+        
+        UIApplication.shared.open(url)
+    }
 }

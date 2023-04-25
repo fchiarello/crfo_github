@@ -37,9 +37,12 @@ final class UserDetailViewController: UIViewController {
     
     
     private var viewModel: UserDetailViewModel
+    private var coordinator: UserCoordinator?
     
-    init(viewModel: UserDetailViewModel) {
+    init(coordinator: UserCoordinator? = nil,
+         viewModel: UserDetailViewModel) {
         self.viewModel = viewModel
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -116,10 +119,9 @@ extension UserDetailViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if let model = self.reposList?[indexPath.item] {
-////            coordinator?.moveToDetail(login: model.login ?? String())
-//            print(model.first)
-//        }
+        if let data = reposList??[indexPath.item] {
+            coordinator?.openRepoURL(urlString: data.htmlURL ?? String())
+        }
     }
 }
 
