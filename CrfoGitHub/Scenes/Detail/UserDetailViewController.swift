@@ -6,7 +6,6 @@ final class UserDetailViewController: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         imageView.layer.masksToBounds = true
-//        imageView.layer.cornerRadius = (frame.height / 2)
         return imageView
     }()
     

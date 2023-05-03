@@ -10,7 +10,7 @@ final class UsersTableViewCell: UITableViewCell {
         return stack
     }()
     
-    private lazy var avatar: UIImageView = {
+    lazy var avatar: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.masksToBounds = true
@@ -51,6 +51,7 @@ final class UsersTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
+        self.avatar.image = nil
     }
     
     required init?(coder: NSCoder) {
@@ -86,7 +87,6 @@ extension UsersTableViewCell: ViewCode {
     }
     
     func applyAdditionalChanges() {
-        
     }
 }
 

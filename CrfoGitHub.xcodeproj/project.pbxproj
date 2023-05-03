@@ -31,6 +31,7 @@
 		928AB38329F706F50002691C /* UserDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928AB38229F706F40002691C /* UserDetailResponse.swift */; };
 		928AB38629F71A260002691C /* RepoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928AB38529F71A260002691C /* RepoTableViewCell.swift */; };
 		928AB38829F722220002691C /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928AB38729F722220002691C /* Date+Extension.swift */; };
+		929E03B129F8353400719C6A /* LoadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929E03B029F8353400719C6A /* LoadingIndicatorView.swift */; };
 		BBB2B117B77D8B01F9A9A87A /* Pods_CrfoGitHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 504113AAD4F8D99D6F868747 /* Pods_CrfoGitHub.framework */; };
 		F6948BA95E363308791D445F /* Pods_CrfoGitHub_CrfoGitHubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29446D3F465F03E17F6D8AE1 /* Pods_CrfoGitHub_CrfoGitHubUITests.framework */; };
 /* End PBXBuildFile section */
@@ -84,6 +85,7 @@
 		928AB38229F706F40002691C /* UserDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailResponse.swift; sourceTree = "<group>"; };
 		928AB38529F71A260002691C /* RepoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoTableViewCell.swift; sourceTree = "<group>"; };
 		928AB38729F722220002691C /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		929E03B029F8353400719C6A /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
 		AD9DF49F2958BBF06F19E250 /* Pods-CrfoGitHubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrfoGitHubTests.debug.xcconfig"; path = "Target Support Files/Pods-CrfoGitHubTests/Pods-CrfoGitHubTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B3E6ABB0CBE6C01367B82E91 /* Pods-CrfoGitHub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrfoGitHub.debug.xcconfig"; path = "Target Support Files/Pods-CrfoGitHub/Pods-CrfoGitHub.debug.xcconfig"; sourceTree = "<group>"; };
 		B54C21A48D12E00486165E1D /* Pods_CrfoGitHubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrfoGitHubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -265,6 +267,7 @@
 			children = (
 				928AB37629ECBC640002691C /* ViewCode.swift */,
 				928AB38729F722220002691C /* Date+Extension.swift */,
+				929E03B029F8353400719C6A /* LoadingIndicatorView.swift */,
 			);
 			path = Commom;
 			sourceTree = "<group>";
@@ -544,6 +547,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				928AB37D29F6F5F50002691C /* UserDetailViewController.swift in Sources */,
+				929E03B129F8353400719C6A /* LoadingIndicatorView.swift in Sources */,
 				928AB38629F71A260002691C /* RepoTableViewCell.swift in Sources */,
 				928AB35B29EC53070002691C /* AppCoordinator.swift in Sources */,
 				928AB37429EC80D40002691C /* Constants.swift in Sources */,

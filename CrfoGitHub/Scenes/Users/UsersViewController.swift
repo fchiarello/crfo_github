@@ -28,10 +28,14 @@ class UsersViewController: UIViewController {
 
     private var coordinator: UserCoordinator?
     private var viewModel: UsersViewModel
+    let loading = Indicator.sharedInstance
     
     private var model: AllUsersModel? {
         didSet {
-           self.usersTableView.reloadData()
+            DispatchQueue.main.async {
+                self.usersTableView.reloadData()
+                self.loading.hideIndicator()
+            }
         }
     }
     
@@ -55,6 +59,7 @@ class UsersViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.delegate = self
+        loading.showIndicator()
         viewModel.loadServices()
     }
     
@@ -161,7 +166,6 @@ extension UsersViewController: ViewCode {
     
     func applyAdditionalChanges() {
         view.backgroundColor = .white
-        usersTableView.reloadData()
     }
 }
 
